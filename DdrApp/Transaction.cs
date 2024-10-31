@@ -42,7 +42,7 @@ namespace Publisher
                     using (var channel = connection.CreateModel())
 
                     {
-                        channel.ExchangeDeclare(exchange: "exchange_one", type: ExchangeType.Topic);
+                        channel.ExchangeDeclare(exchange: "X_sber_exchange", type: ExchangeType.Topic);
 
                         string _routingKey = GenerateRoutingKey();
 
@@ -51,7 +51,7 @@ namespace Publisher
                         var _body = Encoding.UTF8.GetBytes(message);
 
                         channel.BasicPublish(
-                            exchange: "exchange_one",
+                            exchange: "X_sber_exchange",
                             routingKey: _routingKey,
                             basicProperties: null,
                             body: _body);
